@@ -32,32 +32,34 @@ connection required.
 | AWS cost (100 images/month) | $0.00 (within free tier) |
 
 ## System Architecture
-┌─────────────────────────────────────┐
-│           Spresense Device          │
-│                                     │
-│  [Button] → [Camera] → [SD Card]   │
-│                  ↓                  │
-│          [LTE Extension Board]      │
-└──────────────────┬──────────────────┘
-│ HTTPS POST
-│ Content-Type: image/jpeg
-↓
-┌─────────────────────────────────────┐
-│              AWS Cloud              │
-│                                     │
-│  API Gateway  POST /image-upload    │
-│       ↓                             │
-│  Lambda #1  spresense-image-uploader│
-│       ↓                             │
-│  S3 Bucket  images/*.jpg            │
-│       ↓  ObjectCreated event        │
-│  Lambda #2  spresense-image-email-sender │
-│       ↓                             │
-│  Amazon SES                         │
-└──────────────────┬──────────────────┘
-↓
-📧 Email with image attachment
 
+```mermaid
+flowchart TD
+    A[🔘 Button Press] --> B[📷 Camera Capture]
+    B --> C[💾 Save to SD Card]
+    C --> D[📡 LTE Upload]
+    D --> E[API Gateway\nPOST /image-upload]
+    E --> F[Lambda #1\nspresense-image-uploader]
+    F --> G[S3 Bucket\nimages/*.jpg]
+    G -->|ObjectCreated event| H[Lambda #2\nspresense-image-email-sender]
+    H --> I[Amazon SES]
+    I --> J[📧 Email with image attachment]
+
+    subgraph Spresense Device
+        A
+        B
+        C
+        D
+    end
+
+    subgraph AWS Cloud
+        E
+        F
+        G
+        H
+        I
+    end
+```
 ## Hardware Requirements
 
 | Component | Details |
