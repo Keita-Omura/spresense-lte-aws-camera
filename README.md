@@ -32,7 +32,6 @@ connection required.
 | AWS cost (100 images/month) | $0.00 (within free tier) |
 
 ## System Architecture
-
 ```mermaid
 flowchart TD
     A[🔘 Button Press] --> B[📷 Camera Capture]
