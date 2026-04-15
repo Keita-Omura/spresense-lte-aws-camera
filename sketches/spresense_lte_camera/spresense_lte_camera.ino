@@ -17,8 +17,6 @@
  * - Memory: 1536 KB (required for camera + LTE + TLS to work simultaneously)
  *
  * License: MIT
- * Author: Keita Omura
- * Repository: https://github.com/Keita-Omura/spresense-lte-aws-camera
  */
 
 #include <LTE.h>
