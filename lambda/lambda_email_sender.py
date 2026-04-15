@@ -19,8 +19,6 @@ Note: Both sender and recipient must be verified in SES
       when operating in SES Sandbox mode.
 
 License: MIT
-Author: Keita Omura
-Repository: https://github.com/Keita-Omura/spresense-lte-aws-camera
 """
 
 import json
