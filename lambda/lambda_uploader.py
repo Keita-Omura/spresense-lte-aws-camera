@@ -14,8 +14,6 @@ IAM Permissions Required:
   - AmazonS3FullAccess (for s3:PutObject)
 
 License: MIT
-Author: Keita Omura
-Repository: https://github.com/Keita-Omura/spresense-lte-aws-camera
 """
 
 import boto3
