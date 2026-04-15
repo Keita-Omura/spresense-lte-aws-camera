@@ -72,6 +72,7 @@ flowchart TD
 | Power Supply | USB or mobile battery (5V / 1A or more) |
 
 ## Repository Structure
+'''
 spresense-lte-aws-camera/
 ├── sketches/
 │   └── spresense_lte_camera/
@@ -85,7 +86,7 @@ spresense-lte-aws-camera/
 ├── LED_GUIDE.md                  — LED status indicators
 ├── DEV_HISTORY.md                — Version history and lessons learned
 └── PROJECT_OVERVIEW.md           — Full technical documentation
-
+'''
 ## Quick Start
 
 See [docs/SETUP.md](docs/SETUP.md) for complete setup instructions.
